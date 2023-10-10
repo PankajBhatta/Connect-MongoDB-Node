@@ -10,7 +10,8 @@ async function dbconnect()
     let collection = db.collection('managers');
    // let response = await collection.find({}).toArray();
    // console.log(Data);
+//    ..
 }
-dbconnect().then((resp) => {
+dbconnect().then((resp) => { 
     console.warn(resp.find().toArray())
 });
