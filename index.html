@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body> 
+
+<script>
+  // Function that returns a Promise which resolves after a delay
+function delay(ms) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(ms); // Resolves with the delay time
+    }, ms);
+  });
+}
+
+// Create a Promise and chain it with another Promise
+delay(1000)
+  .then((ms) => {
+    console.log(`Waited for ${ms} milliseconds.`);
+    return delay(1500); // Chaining with another Promise
+  })
+  .then((ms) => {
+    console.log(`Waited for ${ms} milliseconds.`);
+    // Simulate an error by rejecting the Promise
+    return Promise.reject("Error occurred!");
+  })
+  .catch((error) => {
+    console.error(`Error: ${error}`);
+  })
+  .finally(() => {
+    console.log("All done!");
+  });
+
+
+
+</script>
+
+</body>
+</html>
